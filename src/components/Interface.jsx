@@ -48,7 +48,7 @@ class Interface extends Component {
       sortedMovies = sort(sortedMovies, sortSelection);
     }
 
-    // console.log(movies, sortedMovies, sortSelection);
+    // (movies, sortedMovies, sortSelection);
 
     return (
       <>
