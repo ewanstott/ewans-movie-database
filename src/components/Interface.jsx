@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Search from "./Search";
 import Movies from "./Movies";
+import { sort } from "../sort";
 
 class Interface extends Component {
   state = {};
@@ -27,16 +28,34 @@ class Interface extends Component {
   };
 
   onSortSelect = (e) => {
-    this.setState({ onSortSelect: e.target.value });
+    this.setState({ sortSelection: e.target.value });
   };
 
   render() {
-    console.log(this.state);
-    const { movies } = this.state;
+    // console.log(this.state);
+    const { movies, sortSelection } = this.state;
+
+    //if movies does not excist, return loading...
+    if (!movies) {
+      return <p>Loading...</p>;
+    }
+
+    //sort data
+    let sortedMovies = [...movies];
+
+    //importing sort function from sort.js
+    if (sortSelection) {
+      sortedMovies = sort(sortedMovies, sortSelection);
+    }
+
+    // console.log(movies, sortedMovies, sortSelection);
+
     return (
       <>
         <Search onSearchInput={this.onSearchInput} />
-        {movies && <Movies movies={movies} onSortSelect={this.onSortSelect} />}
+        {movies && (
+          <Movies movies={sortedMovies} onSortSelect={this.onSortSelect} />
+        )}
       </>
     );
   }

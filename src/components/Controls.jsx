@@ -6,8 +6,10 @@ class Controls extends Component {
     return (
       <div>
         <select onChange={onSortSelect}>
-          <option value="A-Z">A-Z</option>
-          <option value="Z-A">Z-A</option>
+          <option value="Title:A-Z">Title: A-Z</option>
+          <option value="Title:Z-A">Title: Z-A</option>
+          <option value="Date:Newest">Newest</option>
+          <option value="Date:Oldest">Oldest</option>
         </select>
       </div>
     );
