@@ -1,0 +1,9 @@
+.movie.about img {
+  width: 250px;
+}
+
+.movie {
+  background-color: darkgrey;
+  margin: 10px;
+  padding: 5px;
+}
