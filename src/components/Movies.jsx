@@ -12,7 +12,7 @@ class Movies extends Component {
       <>
         <Controls onSortSelect={onSortSelect} />
         {movies.map((movie) => {
-          return <Movie movie={movie} />;
+          return <Movie key={movie.id} movie={movie} />;
         })}
       </>
     );

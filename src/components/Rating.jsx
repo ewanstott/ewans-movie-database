@@ -6,7 +6,7 @@ class Rating extends Component {
   render() {
     const { voteAverage, voteCount } = this.props;
 
-    console.log(Math.floor(voteAverage));
+    // console.log(Math.floor(voteAverage));
 
     //create array where length matches count of votes
     const count = [];
@@ -18,9 +18,9 @@ class Rating extends Component {
       <>
         <p>Total Votes: {voteCount}</p>
         <p>Rating: {voteAverage}</p>
-        {new Array(Math.floor(voteAverage)).fill("").map(() => {
+        {count.map((item, index) => {
           return (
-            <span className="star">
+            <span key={index} className="star">
               <FaRegStar />
             </span>
           );
